@@ -5,11 +5,11 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "SpeakerServlet", value = "/speakers")
-public class SpeakerServlet extends HttpServlet {
+@WebServlet(name = "SecondaryServlet", value = "/secondary")
+public class SecondaryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/secondary").forward(request, response);
+        System.out.println("A get request was made to secondary");
     }
 
     @Override

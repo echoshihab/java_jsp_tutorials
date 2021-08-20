@@ -12,10 +12,26 @@ import java.io.PrintWriter;
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("This is a get request to /hello");
-        response.setContentType("text/html");
-        response.getWriter().println("<h1>Hello</h1>");
-        response.getWriter().println("<p>Weclome to my website </p>");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+
+        StringBuilder error = new StringBuilder();
+
+        if (firstName == null){
+            error.append("Firstname not supplied");
+        } else if (lastName == null){
+            error.append("Lastname not supplied");
+        }
+
+        if(error.length() > 0){
+            request.setAttribute("error", error.toString());
+        } else {
+            request.setAttribute("firstName", firstName);
+            request.setAttribute("lastName", lastName);
+        }
+
+        getServletContext().getRequestDispatcher("/attributedemo.jsp").forward(request, response);
+
     }
 
     @Override
@@ -28,6 +44,6 @@ public class HelloServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         out.print(testString);
         out.flush();
-//start at 5th video
+//start at 6th video
     }
 }
