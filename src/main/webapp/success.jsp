@@ -12,5 +12,6 @@
 </head>
 <body>
 <h3>Account Created for ${user}</h3>
+<h4>Secret Token: ${secretToken}</h4>
 </body>
 </html>

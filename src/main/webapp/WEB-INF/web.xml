@@ -3,9 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <context-param>
+        <param-name>secretToken</param-name>
+        <param-value>A55sdf24521234340o587knlwkjsd))(2234</param-value>
+    </context-param>
     <servlet>
         <servlet-name>XMLServlet</servlet-name>
         <servlet-class>com.example.XMLServlet</servlet-class>
+        <init-param>
+            <param-name>xml</param-name>
+            <param-value>This is for Xml Servlet only</param-value>
+        </init-param>
     </servlet>
     
     <servlet-mapping>

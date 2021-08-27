@@ -38,6 +38,8 @@ public class RegistrationServlet extends HttpServlet {
             request.setAttribute("errors", errors);
             doGet(request, response);
         } else{
+            String secretToken = getServletContext().getInitParameter("secretToken");
+            request.setAttribute("secretToken", secretToken);
             request.setAttribute("user", email);
             getServletContext().getRequestDispatcher("/success.jsp").forward(request,response);
         }
