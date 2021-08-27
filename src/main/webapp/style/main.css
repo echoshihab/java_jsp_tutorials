@@ -1,3 +1,20 @@
 ul {
     border: 1px solid black;
 }
+
+form{
+    display: inline-block;
+}
+.form-field{
+    width: 50%;
+    margin: 2px 0;
+    text-align: center;
+
+}
+ul{
+    border: none;
+}
+.error{
+
+    color:red;
+}

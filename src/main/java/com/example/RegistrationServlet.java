@@ -30,13 +30,18 @@ public class RegistrationServlet extends HttpServlet {
         if(confirmPassword == null || confirmPassword.isEmpty()){
             errors.put("confirmPassword", "Confirm password cannot be empty");
         }
-        if (password.equalsIgnoreCase(confirmPassword)){
+        if (!password.equalsIgnoreCase(confirmPassword)){
             errors.put("Mismatched Password", "Password do not match Confirm Password");
         }
 
         if(errors.size()> 0){
             request.setAttribute("errors", errors);
             doGet(request, response);
+        } else{
+            request.setAttribute("user", email);
+            getServletContext().getRequestDispatcher("/success.jsp").forward(request,response);
         }
     }
 }
+
+//continue form 8.
