@@ -9,10 +9,12 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 
-@WebServlet(name = "PersonServlet", value = "/person ")
+@WebServlet(name = "PersonServlet", value = "/person", initParams = {@WebInitParam(name = "personKey", value =
+        "This is for person servlet only")})
 public class PersonServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(getServletConfig().getInitParameter("personKey"));
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
 
